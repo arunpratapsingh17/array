@@ -1,38 +1,36 @@
-/*package whatever //do not write package name here */
-
-import java.util.*;
-
-class GFG {
-	public static void main (String[] args) {
-		Scanner sc=new Scanner(System.in);
-		int n=sc.nextInt();
-		int arr[]=new int[n];
-		for(int i=0;i<n;i++){
-		    arr[i]=sc.nextInt();
-		}
-		int a=arr[0];
-		int u=0;
-		int d=0;
-		int b=arr[n-1];
-		for(int i=1;i<n;i++){
-		    if((arr[i]>arr[i-1])){
-		        u++;
-		    }
-		    else if(arr[i]<arr[i-1]){
-		        d++;
-		    }
-		}
-		int sum=0;
-		if((u==n-1)||(d==n-1)){
-		    System.out.println("CAnt fill");
-		    return;
-		}
-		int l=Math.min(a,b);
-		for(int i=1;i<n-1;i++){
-		    if(l>arr[i]){
-		        sum=sum+(l-arr[i]);
-		    }
-		}
-		System.out.println(sum);
-	}
-}
+static int trappingWater(int arr[], int n) { 
+        
+        // Your code here
+       int left[]=new int[n];
+       int right[]=new int[n];
+       int temp;
+       temp=arr[0];
+       left[0]=arr[0];
+       for(int i=1;i<n;i++){
+           if(arr[i]>temp){
+               temp=arr[i];
+               left[i]=temp;
+           }
+           else{
+               left[i]=temp;
+           }
+       }
+       temp=arr[n-1];
+       right[n-1]=arr[n-1];
+       for(int i=n-2;i>=0;i--){
+           if(arr[i]>temp){
+               right[i]=arr[i];
+               temp=arr[i];
+           }
+           else{
+               right[i]=temp;
+           }
+       }
+       int v;
+       int sum=0;
+       for(int i=0;i<n;i++){
+           v=Math.min(left[i],right[i]);
+           sum=sum+(v-arr[i]);
+       }
+       return sum;
+    } 
