@@ -1,5 +1,5 @@
 /*https://ide.geeksforgeeks.org/30981SspdV */
-
+/*This is helpful when we are required to find two numbers in an array */
 import java.util.*;
 
 class GFG {
@@ -14,7 +14,7 @@ class GFG {
 		int l=0;
 		int r=n-1;
 		int x=sc.nextInt();
-		while(l<=r){
+		while(l<r){
 		    if(arr[l]+arr[r]==x){
 		        flag=1;
 		        break;
