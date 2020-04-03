@@ -1,5 +1,5 @@
 /*https://ide.geeksforgeeks.org/dZdvRjkmkr */
-
+/*Only works for sorted array*/
 import java.util.*;
 
 class GFG {
